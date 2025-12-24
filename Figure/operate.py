@@ -23,6 +23,7 @@ def merging(land, ocean):
     return merged
 
 def graphing(df, name):
+    """shows the graph of input csv file"""
     df = df.copy()
     df["DATE"] = pd.to_datetime(df["DATE"])
     df = df.sort_values("DATE")
@@ -53,7 +54,10 @@ class MLP(nn.Module):
         
 
 def showMLP(df, weightPath):
-
+    """showing graph of MLP trended value
+    * if pth file is in weightPath -> load the weight
+    * else -> learning the MLP and save pth file"""
+    
     df = df.copy()
     df["DATE"] = pd.to_datetime(df["DATE"])
     df = df.sort_values("DATE")
@@ -142,4 +146,5 @@ def showMLP(df, weightPath):
     plt.ylabel("Temperature Difference")
     plt.legend()
     plt.tight_layout()
+
     plt.show()
